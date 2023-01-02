@@ -1,9 +1,13 @@
 import "./App.css";
 
+import Navbar from "./components/Navbar";
+import Users from "./components/Users";
+
 function App() {
   return (
     <div className="App">
-      <h1>Hellow Workd!</h1>
+      <Navbar />
+      <Users />
     </div>
   );
 }
