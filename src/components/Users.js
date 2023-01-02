@@ -40,9 +40,12 @@ const Users = () => {
   return (
     <div className="flex flex-row justify-center mt-4">
       <div className="">
-        {data.map((d) => (
-          <div className=" bg-slate-300 p-6 mb-3">
-            <div>
+        {data.map((d, index) => (
+          <div
+            key={d.data().name + index + "00"}
+            className=" bg-slate-300 p-6 mb-3 w-64"
+          >
+            <div className="border-b-2 p-1">
               <button onClick={() => deleteData(d.data().name)}>X</button>
             </div>
             <div>
@@ -53,14 +56,14 @@ const Users = () => {
             </div>
 
             <div className="p-4 border-b-2 border-t-2 mt-2">
-              {d.data().interests.map((i) => (
-                <p>{i}</p>
+              {d.data().interests.map((i, index) => (
+                <p key={i + index + "00"}>{i}</p>
               ))}
             </div>
           </div>
         ))}
       </div>
-      <div className="bg-slate-300 ml-3 p-4">
+      <div className="bg-slate-300 ml-3 p-4 h-64">
         <div>
           <button
             className="bg-green-300 p-1 rounded-full mb-8"
@@ -70,7 +73,7 @@ const Users = () => {
           </button>
         </div>
 
-        <div className="mb-2">
+        <div className="mb-2 ">
           <input
             className="p-2 rounded-md"
             placeholder="name"
@@ -89,7 +92,10 @@ const Users = () => {
         </div>
 
         <div>
-          <button className="bg-sky-600 p-4 rounded-md" onClick={saveData}>
+          <button
+            className="bg-sky-600 px-4 py-1 w-full rounded-md mt-3"
+            onClick={saveData}
+          >
             Save User
           </button>
         </div>
