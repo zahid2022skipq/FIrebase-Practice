@@ -7,7 +7,10 @@ const Users = () => {
 
   const getData = async () => {
     const querySnapshot = await getDocs(collection(db, "users"));
-    console.log(querySnapshot.docs[0].data());
+    console.log(querySnapshot.docs);
+    setData(querySnapshot.docs);
+    console.log("DATA->");
+    data.map((d) => console.log(d.data().name));
   };
 
   return (
@@ -18,7 +21,7 @@ const Users = () => {
             <h2>Name</h2>
           </div>
           <div>
-            <h3>{d.name}</h3>
+            <h3>{d.data().name}</h3>
           </div>
         </div>
       ))}
